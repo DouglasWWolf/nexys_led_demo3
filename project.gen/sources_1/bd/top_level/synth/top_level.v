@@ -1,8 +1,8 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Fri Sep  6 19:24:52 2024
-//Host        : simtool-5 running 64-bit Ubuntu 20.04.6 LTS
+//Date        : Sat Nov  1 15:54:05 2025
+//Host        : wolf-super-server running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target top_level.bd
 //Design      : top_level
 //Purpose     : IP block netlist
@@ -56,9 +56,11 @@ module top_level
   wire button_Q;
   wire clk_in1_0_1;
   wire [31:0]dance_master_M_AXI_ARADDR;
+  wire [2:0]dance_master_M_AXI_ARPROT;
   wire [0:0]dance_master_M_AXI_ARREADY;
   wire dance_master_M_AXI_ARVALID;
   wire [31:0]dance_master_M_AXI_AWADDR;
+  wire [2:0]dance_master_M_AXI_AWPROT;
   wire [0:0]dance_master_M_AXI_AWREADY;
   wire dance_master_M_AXI_AWVALID;
   wire dance_master_M_AXI_BREADY;
@@ -128,9 +130,11 @@ module top_level
         .Q(button_Q));
   top_level_dance_master_0_0 dance_master
        (.M_AXI_ARADDR(dance_master_M_AXI_ARADDR),
+        .M_AXI_ARPROT(dance_master_M_AXI_ARPROT),
         .M_AXI_ARREADY(dance_master_M_AXI_ARREADY),
         .M_AXI_ARVALID(dance_master_M_AXI_ARVALID),
         .M_AXI_AWADDR(dance_master_M_AXI_AWADDR),
+        .M_AXI_AWPROT(dance_master_M_AXI_AWPROT),
         .M_AXI_AWREADY(dance_master_M_AXI_AWREADY),
         .M_AXI_AWVALID(dance_master_M_AXI_AWVALID),
         .M_AXI_BREADY(dance_master_M_AXI_BREADY),
@@ -183,7 +187,7 @@ module top_level
         .S00_AXI_arid(1'b0),
         .S00_AXI_arlen(1'b0),
         .S00_AXI_arlock(1'b0),
-        .S00_AXI_arprot({1'b0,1'b0,1'b0}),
+        .S00_AXI_arprot(dance_master_M_AXI_ARPROT),
         .S00_AXI_arqos({1'b0,1'b0,1'b0,1'b0}),
         .S00_AXI_arready(dance_master_M_AXI_ARREADY),
         .S00_AXI_arregion({1'b0,1'b0,1'b0,1'b0}),
@@ -196,7 +200,7 @@ module top_level
         .S00_AXI_awid(1'b0),
         .S00_AXI_awlen(1'b0),
         .S00_AXI_awlock(1'b0),
-        .S00_AXI_awprot({1'b0,1'b0,1'b0}),
+        .S00_AXI_awprot(dance_master_M_AXI_AWPROT),
         .S00_AXI_awqos({1'b0,1'b0,1'b0,1'b0}),
         .S00_AXI_awready(dance_master_M_AXI_AWREADY),
         .S00_AXI_awregion({1'b0,1'b0,1'b0,1'b0}),
